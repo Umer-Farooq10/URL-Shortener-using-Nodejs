@@ -1,0 +1,20 @@
+### Get all urls
+
+GET http://localhost:3000/urls
+
+### Get analytics
+
+GET http://localhost:3000/urls/analytics/07PI4nNZE
+
+### Get preview and update the timestamp
+
+GET http://localhost:3000/07PI4nNZE
+
+### Create new url
+
+POST http://localhost:3000/urls
+Content-Type: application/json
+
+{
+    "originalUrl": "https://www.twitter.com"
+}
