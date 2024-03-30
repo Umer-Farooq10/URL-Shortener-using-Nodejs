@@ -16,7 +16,7 @@ router.get('/login', isLoggedIn, (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-    res.clearCookie('uid');
+    res.clearCookie('token');
     res.redirect('/api/users/login');
 });
 

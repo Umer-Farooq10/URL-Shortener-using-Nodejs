@@ -25,9 +25,8 @@ const userLogin = async (req, res) => {
             return res.render('login', { error: 'Please provide valid username and password!' })
         }
         const token = setUser(user)
-        // res.cookie("uid", token)
-        // return res.redirect('/')
-        return res.json({ token })
+        res.cookie("token", token)
+        return res.redirect('/')
     } catch (error) {
         return res.status(500).json({ error: "An internal server error occurred.", message: error.message });
     }

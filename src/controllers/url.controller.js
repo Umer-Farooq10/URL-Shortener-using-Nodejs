@@ -5,14 +5,23 @@ const shortid = require('shortid')
 
 const GetAllUrls = async (req, res) => {
     try {
-        const urls = await URL.find({});
-        if (!urls || urls.length === 0) {
-            return res.status(404).json({ message: "URLs not found." });
+        const urls = await URL.find({})
+        if (urls.length === 0) {
+            return res.render('index', { urls: 0 })
         }
-        return res.status(200).json(urls);
+        return res.render('index', { urls })
     } catch (error) {
-        return res.status(500).json({ message: "Internal server error.", error: error.message });
+        return res.status(500).json({ error: error.message });
     }
+    // try {
+    //     const urls = await URL.find({});
+    //     if (!urls || urls.length === 0) {
+    //         return res.status(404).json({ message: "URLs not found." });
+    //     }
+    //     return res.status(200).json(urls);
+    // } catch (error) {
+    //     return res.status(500).json({ message: "Internal server error.", error: error.message });
+    // }
 }
 
 const GetUrlAnalytics = async (req, res) => {
